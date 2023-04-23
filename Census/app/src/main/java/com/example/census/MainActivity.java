@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -25,7 +26,7 @@ import top.defaults.colorpicker.ColorPickerPopup;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button preference;
+    Button preference,addData,listData;
     int color;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
         setBgColor();
 
         preference = (Button) findViewById(R.id.preference);
+        addData = (Button) findViewById(R.id.addData);
+        listData = (Button) findViewById(R.id.listdata);
+
+        addData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToAddData();
+            }
+        });
 
         preference.setOnClickListener(
                 new View.OnClickListener() {
@@ -75,5 +85,10 @@ public class MainActivity extends AppCompatActivity {
         color = sharedPref.getInt("bgColor",-132097);
         ConstraintLayout Layout = findViewById(R.id.main);
         Layout.setBackgroundColor(color);
+    }
+    public void moveToAddData(){
+        Intent intent = new Intent(this,addDataActivity.class);
+        startActivity(intent);
+        Log.d(TAG, "moveToNext: worked");
     }
 }
