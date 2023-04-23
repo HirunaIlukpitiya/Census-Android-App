@@ -2,12 +2,16 @@ package com.example.census;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -26,16 +30,15 @@ public class SplashActivity extends AppCompatActivity {
         setBgColor();
 
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        boolean b = handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(SplashActivity.this,RegisterActivity.class);
+                Intent intent = new Intent(SplashActivity.this, RegisterActivity.class);
                 startActivity(intent);
                 finish();
             }
-        },3000);
-    }
-    public void setBgColor(){
+            },2000);
+        }; public void setBgColor(){
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.Census), Context.MODE_PRIVATE);
         color = sharedPref.getInt("bgColor",-132097);
         ConstraintLayout Layout = findViewById(R.id.splash);
