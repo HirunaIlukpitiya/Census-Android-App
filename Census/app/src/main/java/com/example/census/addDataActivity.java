@@ -3,11 +3,14 @@ package com.example.census;
 import static android.content.ContentValues.TAG;
 import android.Manifest;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -48,6 +51,7 @@ public class addDataActivity extends AppCompatActivity {
         ProgressBar saveProgress = (ProgressBar) findViewById(R.id.saveProgress);
         saveProgress.setVisibility(ProgressBar.INVISIBLE);
 
+        setBgColor();
         cameraPermission();
 
         userPhoto = (ImageView) findViewById(R.id.userPhoto);
@@ -168,6 +172,13 @@ public class addDataActivity extends AppCompatActivity {
             Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(camera_intent, pic_id);
         });
+    }
+
+    public void setBgColor(){
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.Census), Context.MODE_PRIVATE);
+        int color = sharedPref.getInt("bgColor",-132097);
+        ConstraintLayout Layout = findViewById(R.id.addData);
+        Layout.setBackgroundColor(color);
     }
 
 }

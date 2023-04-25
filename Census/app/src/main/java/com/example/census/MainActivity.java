@@ -47,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
                 moveToAddData();
             }
         });
+        listData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                moveToListData();
+            }
+        });
 
         preference.setOnClickListener(
                 new View.OnClickListener() {
@@ -88,6 +94,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void moveToAddData(){
         Intent intent = new Intent(this,addDataActivity.class);
+        startActivity(intent);
+        Log.d(TAG, "moveToNext: worked");
+    }
+
+    public void moveToListData(){
+        Intent intent = new Intent(this,listDataActivity.class);
         startActivity(intent);
         Log.d(TAG, "moveToNext: worked");
     }
