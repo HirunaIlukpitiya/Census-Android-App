@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:foregroundTint="#000000"
-    tools:context=".addDataActivity">
+    tools:context=".addDataActivity"
+    android:id="@+id/addData">
 
     <ImageView
         android:id="@+id/imageView6"
