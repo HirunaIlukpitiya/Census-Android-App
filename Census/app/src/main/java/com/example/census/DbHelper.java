@@ -64,4 +64,9 @@ public class DbHelper extends SQLiteOpenHelper {
         return userList;
     }
 
+    public void deleteAllUsers() {
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.delete("users", null, null);
+            db.close();
+    }
 }
