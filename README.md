@@ -1,5 +1,5 @@
 # Census-Android-App
 primary language - Java.
-used Android studio.
-Census android app that created as a Assignment of Mobile coputing module.
+Platform -  Android Studio.
+Census android app that was created as an Assignment of the Mobile computing module.
 Semester 05.
